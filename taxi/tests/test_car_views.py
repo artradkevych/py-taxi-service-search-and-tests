@@ -73,7 +73,10 @@ class PrivateCarTest(TestCase):
             "manufacturer": manufacturer.id
         }
         self.client.post(reverse("taxi:car-create"), data=form_data)
-        new_car = Car.objects.get(model=form_data["model"], manufacturer_id=form_data["manufacturer"])
+        new_car = Car.objects.get(
+            model=form_data["model"],
+            manufacturer_id=form_data["manufacturer"]
+        )
 
         self.assertEqual(new_car.model, form_data["model"])
         self.assertEqual(new_car.manufacturer_id, form_data["manufacturer"])

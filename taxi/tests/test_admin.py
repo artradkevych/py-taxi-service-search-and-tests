@@ -19,7 +19,8 @@ class AdminPanelTest(TestCase):
 
     def test_driver_license_number_listed(self):
         """
-        Test that driver's license number is in list_display on driver admin page
+        Test that driver's license number
+        is in list_display on driver admin page
         """
         url = reverse("admin:taxi_driver_changelist")
         res = self.client.get(url)

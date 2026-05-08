@@ -81,7 +81,10 @@ class PrivateDriverTest(TestCase):
 
         self.assertEqual(new_driver.username, form_data["username"])
         self.assertTrue(new_driver.check_password(form_data["password1"]))
-        self.assertEqual(new_driver.license_number, form_data["license_number"])
+        self.assertEqual(
+            new_driver.license_number,
+            form_data["license_number"]
+        )
 
     def test_update_driver_license_number(self):
         form_data = {
@@ -93,7 +96,10 @@ class PrivateDriverTest(TestCase):
         ), data=form_data)
         self.driver.refresh_from_db()
 
-        self.assertEqual(self.driver.license_number, form_data["license_number"])
+        self.assertEqual(
+            self.driver.license_number,
+            form_data["license_number"]
+        )
 
     def test_confirm_delete_driver(self):
         response = self.client.get(

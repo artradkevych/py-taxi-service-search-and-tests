@@ -101,4 +101,7 @@ class PrivateManufacturerTest(TestCase):
             ), follow=True
         )
         self.assertRedirects(post_response, reverse("taxi:manufacturer-list"))
-        self.assertFalse(Manufacturer.objects.filter(id=self.manufacturer.id).exists())
+        self.assertFalse(
+            Manufacturer.objects.filter(
+                id=self.manufacturer.id).exists()
+        )
